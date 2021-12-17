@@ -1,0 +1,39 @@
+<div class="main-container grid font-extrabold h-12 items-center bg-green-300 justify-center">
+    The List of our Coffees
+</div>
+
+<div class="flex justify-center">
+    <table class="table-auto m-12 ">
+        <thead class="bg-red-200 font-extrabold ">
+            <tr>
+                <div class=" py-4 px-6 hidden lg:table-cell">
+                    <th>ID</th>
+                </div>
+                <th >Blend name</th>
+                <th>Origin</th>
+                <th class="py-4 px-6 hidden md:table-cell">Variety</th>
+                <th class="py-4 px-6 hidden lg:table-cell m-4 ">Notes</th>
+                <th class="py-4 px-6 hidden md:table-cell">intensifier</th>
+            </tr>
+        </thead>
+        <tbody >
+            
+            <tr  *ngFor="let item of allProd | paginate:{itemsPerPage:10, currentPage :p} ">
+
+                <div class=" hidden lg:table-cell">
+                    <td class="py-4 px-6">{{item.id}}</td>
+                </div>
+                <td class="py-4 px-6">{{item.blend_name}}</td>
+                <td class="py-4 px-6">{{item.origin}}</td>
+                <td class="py-4 px-6 hidden md:table-cell">{{item.variety}}</td>
+                <td class="py-4 px-6 hidden lg:table-cell m-4 ">{{item.notes}}</td>
+                <td class="py-4 px-6 hidden md:table-cell"> {{item.intensifier}}</td>
+             </tr>
+        </tbody>
+    </table>
+  
+</div>
+
+<div class=" flex  justify-center">
+    <pagination-controls (pageChange)="p =$event"  ></pagination-controls>
+   </div>
